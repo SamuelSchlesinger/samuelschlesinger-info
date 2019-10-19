@@ -1,0 +1,30 @@
+_common: !include "../shared-package.yaml"
+
+name: samuelschlesinger-info-api
+<<: *common
+
+dependencies:
+  - base
+  - servant-server
+  - servant-client
+  - text
+  - bytestring
+  - servant-blaze
+  - blaze-html
+  - aeson
+
+library:
+  source-dirs:
+    - src
+  dependencies:
+    - base
+  <<: *library
+
+tests:
+  samuelschlesinger-api-unit-tests: 
+    main: test.hs
+    source-dirs: test
+    dependencies:
+      - samuelschlesinger-info-api 
+    <<: *test
+

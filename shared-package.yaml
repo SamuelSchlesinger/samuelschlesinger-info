@@ -1,0 +1,63 @@
+- &common
+  version: '0.1.0.0'
+  author: Samuel Schlesinger
+  maintainer: Samuel Schlesinger
+  license: AllRightsReserved
+  copyright: 2019 Samuel Schlesinger
+  default-extensions:
+  - BlockArguments
+  - ConstraintKinds
+  - DataKinds
+  - DeriveDataTypeable
+  - DeriveGeneric
+  - DeriveAnyClass
+  - DerivingStrategies
+  - EmptyDataDecls
+  - FlexibleContexts
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NoMonomorphismRestriction
+  - OverloadedStrings
+  - PackageImports
+  - QuasiQuotes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TemplateHaskell
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeOperators
+  - ViewPatterns
+
+- &executable
+  ghc-options:
+    - -Wall
+    - -Werror
+    - -fwarn-tabs
+    - -Wincomplete-uni-patterns
+    - -O2
+    - -threaded
+    - -rtsopts
+    - '"-with-rtsopts=-N -T"'
+
+- &test
+  ghc-options:
+    - -Wall
+    - -Werror
+    - -fwarn-tabs
+    - -Wincomplete-patterns
+    - -O2
+    - -threaded
+    - '"-with-rtsopts=-N -T"'
+
+- &library
+  ghc-options:
+    - -Wall
+    - -Werror
+    - -fwarn-tabs
+    - -Wincomplete-uni-patterns
+    - -O2

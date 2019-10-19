@@ -1,0 +1,38 @@
+_common: !include "../shared-package.yaml"
+
+name: samuelschlesinger-info-server
+<<: *common
+
+dependencies:
+  - base
+  - servant-server
+  - text
+  - bytestring
+  - samuelschlesinger-info-api
+  - blaze-html
+
+library:
+  source-dirs:
+    - src
+  dependencies:
+    - base
+  <<: *library
+
+executables:
+  samuelschlesinger-info-server:
+    main: run.hs
+    source-dirs: app
+    dependencies:
+      - samuelschlesinger-info-server
+      - warp
+      - optparse-applicative
+    <<: *executable
+
+tests:
+  samuelschlesinger-server-unit-tests: 
+    main: test.hs
+    source-dirs: test
+    dependencies:
+      - samuelschlesinger-info-server 
+    <<: *test
+
