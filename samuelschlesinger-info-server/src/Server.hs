@@ -5,11 +5,11 @@ import Servant
 import qualified FrontEnd
 import qualified Dispatch
 
-server :: Server API
-server = homeGet :<|> contactGet :<|> contactPost where
+server :: FilePath -> Server API
+server staticPath = homeGet :<|> contactGet :<|> contactPost :<|> serveDirectoryFileServer staticPath where
   homeGet     = return FrontEnd.home 
   contactGet  = return FrontEnd.contact
   contactPost = Dispatch.contact
 
-app :: Application
-app = serve (Proxy @API) server
+app :: FilePath -> Application
+app = serve (Proxy @API) . server
