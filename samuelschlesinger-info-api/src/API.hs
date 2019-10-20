@@ -10,6 +10,7 @@ type API =
                                                      Get '[HTML] Html       
  :<|> "contact"                                   :> Get '[HTML] Html
  :<|> "contact" :> ReqBody '[JSON] ContactRequest :> Post '[JSON] ContactResponse
+ :<|>                                                Raw
 
 data ContactRequest = ContactRequest
   deriving stock (Eq, Show, Generic)
